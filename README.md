@@ -87,3 +87,20 @@ git remote add <имя> <url>
 $ git push -u origin main # Если команда приведёт к ошибке, попробуйте 
                           # заменить main на master.
 ```
+## **Элементы описания коммита**  
+git log  
+Получить сокращённый лог — git log --oneline  
+## **Файл HEAD**  
+Внутри HEAD — ссылка на служебный файл: refs/heads/master (или refs/heads/main в зависимости от названия ветки). Если заглянуть в этот файл, можно увидеть хеш последнего коммита.  
+# **Статусы файлов в Git**  
+Статусы untracked/tracked, staged и modified  
+```mermaid
+graph LR;
+  untracked -- "git add" --> staged;
+  staged    -- "git commit"     --> tracked/comitted;
+  tracked/comitted    -- "Изменения"     --> tracked/midified;
+  tracked/midified    -- "git add"     --> staged;
+
+%% стрелка без текста для примера: 
+  A --> B;
+```
